@@ -17,17 +17,26 @@ You have **two options**: an installer script (recommended) or a manual clone & 
 ---
 
 ###  Option 1: Automatic Installer (Recommended)
-
+**For http:**
 ```bash
-git clone https://github.com/<your-username>/wezterm-glass.git
+git clone https://github.com/Samirghimire-5/wezterm-glass.git
+```
+or,
+ 
+**For SSH:**
+```bash
+git clone git@github.com:Samirghimire-5/wezterm-glass.git
+```
+Then,
+```bash
 cd wezterm-glass
 ./install.sh
 ```
 
 **This will:**\
-Create ~/.config/wezterm if it doesn’t exist\
-Symlink the config file for easy updates\
-Fail safely if a config already exists\
+Create ~/.config/wezterm if it doesn’t exist \
+Symlink the config file for easy updates \
+Fail safely if a config already exists
 
 ---
 
