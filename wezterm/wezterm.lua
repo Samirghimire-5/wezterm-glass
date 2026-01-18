@@ -78,9 +78,7 @@ config.keys = {
 	{ key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
 	{ key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
 	{ key = "L", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
-	-- pane swapping / moving pane position
-
-	-- Rotate panes (reorders layout)
+	-- Rotate panes
 	{ key = "r", mods = "ALT", action = wezterm.action.RotatePanes("Clockwise") },
 	{ key = "R", mods = "ALT|SHIFT", action = wezterm.action.RotatePanes("CounterClockwise") },
 }
