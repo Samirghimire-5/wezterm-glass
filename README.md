@@ -101,6 +101,21 @@ CTRL + SHIFT + R
 | `ALT + Left Click` | Drag window |
 > **Note:** If this doesn't works use `Win + Left Click` to drag window.
 
+#### Increase Pane Size (Vim-style -- just like dragging with mouse/touchpad)
+
+| Shortcut | Direction |
+|----------|-----------|
+| `Alt + SHIFT + H` | Increase size to left |
+| `Alt + SHIFT + L` | Increase size to right |
+| `Alt + SHIFT + K` | Increase size to up |
+| `Alt + SHIFT + J` | Increase size to down |
+
+#### Move pane to the new tab in same window
+
+| Shortcut | Action |
+|----------|--------|
+| `CTRL + SHIFT + ENTER` | Moves the current pane to the new tab |
+
 ### Customization
 
 You can tweak:

@@ -70,17 +70,40 @@ config.keys = {
 	{ key = "g", mods = "CTRL|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "h", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+
 	-- Quick Workspace Switcher (Very cool for multitasking)
 	{ key = "s", mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }) },
+
 	-- Pane Navigation
 	{ key = "h", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Left") },
 	{ key = "l", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Right") },
 	{ key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
 	{ key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
 	{ key = "L", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
-	-- Rotate panes
+
+	-- pane swapping / moving pane position
+	-- Rotate panes (reorders layout)
 	{ key = "r", mods = "ALT", action = wezterm.action.RotatePanes("Clockwise") },
 	{ key = "R", mods = "ALT|SHIFT", action = wezterm.action.RotatePanes("CounterClockwise") },
+
+	-- Move current pane to new tab in the window
+	{
+		key = "Enter",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(window, pane)
+			-- Move the pane and capture the new tab object
+			local new_tab = pane:move_to_new_tab()
+
+			-- switch focus to the newly created tab
+			new_tab:activate()
+		end),
+	},
+
+	-- Resize panes with keyboard (like dragging, but better)
+	{ key = "H", mods = "ALT|SHIFT", action = wezterm.action.AdjustPaneSize({ "Left", 2 }) },
+	{ key = "L", mods = "ALT|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 2 }) },
+	{ key = "K", mods = "ALT|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 2 }) },
+	{ key = "J", mods = "ALT|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 2 }) },
 }
 
 config.mouse_bindings = {
