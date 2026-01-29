@@ -7,6 +7,8 @@ local config = wezterm.config_builder()
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 config.enable_tab_bar = false
 config.window_decorations = "NONE" -- Removes title bar for that clean Linux look
+
+-- OpenGl needs a working GPU driver, so if you are using older machine change it to "WebGpu" or "Software"
 config.front_end = "OpenGL" --"WebGpu for Faster rendering and better "glow"
 
 -- ---------------------------------------------------------

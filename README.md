@@ -12,6 +12,14 @@ A **minimal, glassy, keyboard-driven WezTerm configuration** for Linux, designed
 
 ##  Installation
 
+### Prerequisites
+
+**WezTerm:** Install it via your package manager.
+```bash
+sudo apt install wezterm
+# or
+brew install --cask wezterm
+```
 You have **two options**: an installer script (recommended) or a manual clone & copy.
 
 ---
