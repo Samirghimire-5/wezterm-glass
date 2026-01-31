@@ -74,9 +74,8 @@ config.colors = {
 -- ---------------------------------------------------------
 config.default_cursor_style = "BlinkingBar"
 config.cursor_blink_rate = 500
--- Set your font (Ubuntu comes with good ones, but JetBrainsMono Nerd Font is best)
+-- Set your font 
 config.font = wezterm.font_with_fallback({
-	"JetBrainsMono Nerd Font",
 	"JetBrains Mono",
 	"Fira Code",
 	"Consolas", -- Windows default fallback

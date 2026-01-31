@@ -19,7 +19,7 @@ A **minimal, glassy, keyboard-driven WezTerm configuration** optimized for Linux
 - **WezTerm:** 
     - [Linux Installation](https://wezfurlong.org/wezterm/install/linux.html).
     - [Windows/macOS Installation](https://wezterm.org/installation.html).
-- **Font:** This config uses **JetBrains Mono**. (Recommended: [JetBrainsMono Nerd Font](https://www.nerdfonts.com/)).
+<!-- - **Font:** This config uses **JetBrains Mono**. (Recommended: [JetBrainsMono Nerd Font](https://www.nerdfonts.com/)). -->
 
 ### 2. Setup (Option 1: Automatic - Linux/macOS - Recommended)
 The automatic installer will check for dependencies and **back up your existing config** to `~/.config/wezterm.bak` before linking.
