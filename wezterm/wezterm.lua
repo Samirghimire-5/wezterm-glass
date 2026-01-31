@@ -1,15 +1,28 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+-- Detect the platform
+local is_mac = wezterm.target_triple:find("apple") ~= nil
+local is_windows = wezterm.target_triple:find("windows") ~= nil
+
 -- ---------------------------------------------------------
 -- 1. PADDING & DECORATIONS
 -- ---------------------------------------------------------
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 config.enable_tab_bar = false
-config.window_decorations = "NONE" -- Removes title bar for that clean Linux look
 
--- OpenGl needs a working GPU driver, so if you are using older machine change it to "WebGpu" or "Software"
-config.front_end = "OpenGL" --"WebGpu for Faster rendering and better "glow"
+if is_mac then
+	config.window_decorations = "RESIZE" -- Keeps Mac buttons but hides title
+else
+	config.window_decorations = "NONE" -- Clean look for Linux/Windows
+end
+
+-- if using older computer use "WebGpu" or "Software" instead of "OpenGL", since OpenGL needs working GPU driver.
+if is_windows then
+	config.front_end = "WebGpu" -- Better transparency handling on Windows
+else
+	config.front_end = "OpenGL"
+end
 
 -- ---------------------------------------------------------
 -- 2. GLASSY AESTHETIC (Linux Specific)
@@ -61,8 +74,12 @@ config.colors = {
 -- ---------------------------------------------------------
 config.default_cursor_style = "BlinkingBar"
 config.cursor_blink_rate = 500
--- Set your font (Ubuntu comes with good ones, but JetBrainsMono Nerd Font is best)
-config.font = wezterm.font("JetBrains Mono")
+-- Set your font 
+config.font = wezterm.font_with_fallback({
+	"JetBrains Mono",
+	"Fira Code",
+	"Consolas", -- Windows default fallback
+})
 config.font_size = 14.0
 
 ------------------------------------------------------------

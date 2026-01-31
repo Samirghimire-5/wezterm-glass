@@ -1,78 +1,79 @@
-# WezTerm Glassy Config
+# WezTerm Glassy Config 🧊
 
-A **minimal, glassy, keyboard-driven WezTerm configuration** for Linux, designed for developers who love **keyboard-first workflows** and clean aesthetics.  
-
-- Deep black + cyan theme  
-- Glassy background with subtle gradient  
-- Vim-style pane navigation  
-- Quick pane rotation / swapping  
-- Single-file configuration for easy installation  
+A **minimal, glassy, keyboard-driven WezTerm configuration** optimized for Linux. Designed for developers who love **keyboard-first workflows** and deep, clean aesthetics.
 
 ---
 
-##  Installation
-
-### Prerequisites
-
-**WezTerm:** Install it via your package manager.
-```bash
-sudo apt install wezterm
-# or
-brew install --cask wezterm
-```
-You have **two options**: an installer script (recommended) or a manual clone & copy.
+## Features
+- **Deep Black + Cyan Theme:** High contrast for focus.
+- **Glassy Aesthetic:** 90% opacity with a subtle midnight-blue gradient.
+- **Vim-Style Navigation:** Move between panes using `CTRL + H/J/K/L`.
+- **Intelligent OS Detection:** Automatically adjusts window decorations for Linux vs. macOS.
+- **Safe Installer:** Automatically backs up your old config before installing.
 
 ---
 
-###  Option 1: Automatic Installer (Recommended)
-**For http:**
+## Installation
+
+### 1. Prerequisites
+- **WezTerm:** 
+    - [Linux Installation](https://wezfurlong.org/wezterm/install/linux.html).
+    - [Windows/macOS Installation](https://wezterm.org/installation.html).
+<!-- - **Font:** This config uses **JetBrains Mono**. (Recommended: [JetBrainsMono Nerd Font](https://www.nerdfonts.com/)). -->
+
+### 2. Setup (Option 1: Automatic - Linux/macOS - Recommended)
+The automatic installer will check for dependencies and **back up your existing config** to `~/.config/wezterm.bak` before linking.
+
 ```bash
 git clone https://github.com/Samirghimire-5/wezterm-glass.git
-```
-or,
- 
-**For SSH:**
-```bash
-git clone git@github.com:Samirghimire-5/wezterm-glass.git
-```
-Then,
-```bash
 cd wezterm-glass
-./install.sh
+chmod +x install.sh && ./install.sh
 ```
-
-**This will:**\
-Create ~/.config/wezterm if it doesn’t exist \
-Symlink the config file for easy updates \
-Fail safely if a config already exists
 
 ---
 
-### Option 2: Manual Clone & Copy (Beginner-Friendly)
-**For http:**
+### 3. Setup (Option 2: Manual/Windows)
+#### 🐧 Linux & 🍏 macOS
 ```bash
 git clone https://github.com/Samirghimire-5/wezterm-glass.git
-```
-or,
- 
-**For SSH:**
-```bash
-git clone git@github.com:Samirghimire-5/wezterm-glass.git
-```
-Then,
-```bash
 mkdir -p ~/.config
 cp -r wezterm-glass/wezterm ~/.config/
 ```
 
-After either method, reload WezTerm:
+#### 🪟 Windows (PowerShell)
+- **Install WezTerm:**
+    - [Windows Installation](https://wezterm.org/installation.html).
+
+- **Clone this repository:**
+
+```Powershell
+git clone https://github.com/Samirghimire-5/wezterm-glass.git
+cd wezterm-glass
+```
+
+- **Create the config directory and copy the file:**
+```PowerShell
+# Create the folder if it doesn't exist
+mkdir -p $HOME\.config\wezterm
+
+# Copy the configuration file
+cp wezterm\wezterm.lua $HOME\.config\wezterm\
+```
+
+- ***Glassy Effect Note:** To ensure the transparency works on Windows:*
+    - Go to **Settings** > **Personalization** > **Colors**.
+    - Toggle **Transparency effects** to **On**.
+
+---
+
+#### After either method, reload WezTerm:
 
 ```bash
 CTRL + SHIFT + R
 ```
 --- 
 
-### Keybindings
+## Keybindings
 
 #### Pane Management
 
@@ -124,31 +125,20 @@ CTRL + SHIFT + R
 |----------|--------|
 | `CTRL + SHIFT + ENTER` | Moves the current pane to the new tab |
 
-### Customization
-
-You can tweak:
-
-- **Font:** `wezterm.font("JetBrains Mono")`
-- **Font size:** `config.font_size = 14.0`
-- **Background opacity:** `config.window_background_opacity`
-- **Keybindings:** edit the `config.keys` table
-
-All changes are made in `wezterm.lua`.
-
 ---
 
-### Screenshots
+## Screenshots
 
 ![Screenshot 1](https://i.ibb.co/G4NxqHL0/Screenshot-from-2026-01-18-22-18-37.png)
 
-![Screenshot 2](https://i.ibb.co/HDmNg855/Screenshot-from-2026-01-18-22-20-39.png)
-
 ---
 
-### Inspiration
+## ⚠️Compatibility Note
+This config is **Linux-First**. While it works on macOS and Windows:
 
-**Inspired by** minimal Linux setups, Neovim workflows, and keyboard-first tools.
+**macOS**: Window decorations are set to **"RESIZE"** to maintain native window controls.
+
+**Windows**: The `install.sh` script is meant for Unix-like shells (Git Bash/WSL). Manual copy is recommended for native Windows.
 
 ---
-
-### Enjoy !!!
+#### Enjoy your new glassy terminal !!!
